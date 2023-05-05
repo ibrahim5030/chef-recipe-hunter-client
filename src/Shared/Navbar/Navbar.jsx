@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip'
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Navbar = () => {
 
@@ -20,9 +21,9 @@ const Navbar = () => {
             <div className='flex items-center justify-center text-center gap-1'>
                 <p className='bg-slate-800 text-orange-400 text-3xl p-5 font-bold'>Chefs Palace</p>
 
-                <Link to='/' ><p className='md:p-5 text-white font-bold'>Home</p></Link>
+                <ActiveLink to='/' ><p className='md:p-5 text-white font-bold'>Home</p></ActiveLink>
 
-                <Link to='/blog' ><p className='md:p-5 text-white font-bold'>Blog</p></Link>
+                <ActiveLink to='/blog' ><p className='md:p-5 text-white font-bold'>Blog</p></ActiveLink>
 
                 {user &&
                     <div>
