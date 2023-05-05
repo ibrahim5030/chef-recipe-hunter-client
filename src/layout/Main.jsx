@@ -5,7 +5,7 @@ import Footer from '../Shared/Footer/Footer';
 
 const Main = () => {
     return (
-        <div>
+        <div className='bg-slate-600'>
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>
