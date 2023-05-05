@@ -1,11 +1,17 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Recipes = () => {
 
     const chef = useLoaderData();
     const { picture, name, bio, likes, number_of_recipes, years_of_experience, food_name, ingredients, cooking_method, image, rating } = chef;
+
+    const handleClick = (event) => {
+        event.target.disabled = true;
+        toast("the recipe is your favorite!");
+    }
 
     return (
         <div>
@@ -34,7 +40,7 @@ const Recipes = () => {
                         <div className='flex items-center font-bold'>
                             <p className='text-white'>Rating: {rating}</p>
                             <div className="card-actions justify-end">
-                                <button className="btn bg-slate-800">Favorite</button>
+                                <button onClick={handleClick} className="btn bg-slate-800">Favorite</button>
                             </div>
                         </div>
                     </div>
@@ -48,7 +54,7 @@ const Recipes = () => {
                         <div className='flex items-center font-bold'>
                             <p className='text-white'>Rating: {rating}</p>
                             <div className="card-actions justify-end">
-                                <button className="btn bg-slate-800">Favorite</button>
+                                <button onClick={handleClick} className="btn bg-slate-800">Favorite</button>
                             </div>
                         </div>
                     </div>
@@ -61,7 +67,7 @@ const Recipes = () => {
                         <p><span className='font-bold'>Cooking method</span> {cooking_method}</p>
                         <div className='flex items-center font-bold'>
                             <p className='text-white'>Rating: {rating}</p>
-                            <button className="btn bg-slate-800">Favorite</button>
+                            <button onClick={handleClick} className="btn bg-slate-800">Favorite</button>
 
                         </div>
                     </div>
