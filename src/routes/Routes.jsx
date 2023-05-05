@@ -5,6 +5,7 @@ import Blog from "../pages/Blog/Blog";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Recipes from "../pages/Recipes/Recipes";
+import NotFound from "../pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
                 element: <Recipes></Recipes>,
                 loader: ({ params }) => fetch(`https://b7a10-chef-recipe-hunter-server-side-seven.vercel.app/chefs/${params.id}`)
             },
+            {
+                path: '*',
+                element: <NotFound></NotFound>
+            }
         ],
     },
 ]);
