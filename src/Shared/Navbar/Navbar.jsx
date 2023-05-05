@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import 'react-tooltip/dist/react-tooltip.css';
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
 
@@ -20,11 +22,21 @@ const Navbar = () => {
 
                 <Link to='/' ><p className='md:p-5 text-white font-bold'>Home</p></Link>
 
-                <Link to='/blog' ><p className='md:p-5 text-white font-bold'>Blog</p></Link>                
-                
-                {user ? <button onClick={handleLogOut} className='py-5 px-3 bg-white text-slate-800 rounded font-bold'>LogOut</button>:
-                
-                <Link to='/login'><button className='py-5 px-3 bg-white text-slate-800 rounded font-bold'>Login</button></Link>}
+                <Link to='/blog' ><p className='md:p-5 text-white font-bold'>Blog</p></Link>
+
+                {user &&
+                    <div>
+                        <img data-tooltip-id="my-tooltip"
+                            data-tooltip-content={user.displayName}
+                            data-tooltip-place="top" className='w-16' src={user.photoURL} alt="" />
+
+                        <Tooltip id="my-tooltip"></Tooltip>
+                    </div>
+                }
+
+                {user ? <button onClick={handleLogOut} className='py-5 px-3 bg-white text-slate-800 rounded font-bold'>LogOut</button> :
+
+                    <Link to='/login'><button className='py-5 px-3 bg-white text-slate-800 rounded font-bold'>Login</button></Link>}
             </div>
         </div>
     );
